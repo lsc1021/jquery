@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css">
+		div{width: 100px;height: 100px;position: absolute;background-color: #000000;}
+	#d1{top: 0px;}
+	#d2{top: 100px;}
+	#d3{top: 200px;}
+	#d4{top: 300px;}
+	#d5{top: 400px;}
+	#d6{top: 500px;}
+	</style>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<div id="d2"></div>
+		<div id="d3"></div>
+		<div id="d4"></div>
+		<div id="d5"></div>
+		<div id="d6"></div>
+		
+	</body>
+	<script type="text/javascript">
+		$.extend({
+			dong:function(){
+				$("div").mouseenter(function(){
+					$(this).animate({"left":600},1000)
+					
+				})				
+			}
+		})
+		$.fn.extend({
+			dong:function(){
+				this.mouseenter(function(){
+				var index=$(this).index();
+				$(this).animate({"left":100*(index+1),"border-radius":"25%","width":150,"height":150},2000)
+				$(this).css("background-color","darkorchid")
+				$(this).animate({"left":800,"top":0,"border-radius":"50%"},200)
+				})
+			}
+		})
+	</script>
+	<script type="text/javascript">
+//		$.dong();
+		$("div").dong();
+	</script>
+</html>
